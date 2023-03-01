@@ -88,7 +88,7 @@ const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }) => {
         className={
           !toggle
             ? "hidden"
-            : "absolute top-0 right-0 w-[40%] h-screen bg-blue-20 flex flex-col justify-center place-items-center text-sm font-semibold gap-5"
+            : "absolute top-0 right-0 w-full h-screen bg-blue-20 flex flex-col justify-center place-items-center text-sm font-semibold gap-5"
         }
       >
         <Link
