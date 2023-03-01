@@ -42,7 +42,9 @@ const Navbar = ({ selectedPage, setSelectedPage, isTopOfPage }) => {
     setToggle(false);
   };
 
-  const navbarBg = isTopOfPage ? "" : "bg-blue-20 text-blue-100";
+  const navbarBg = isTopOfPage
+    ? "bg-blue-20 text-blue-100"
+    : "bg-blue-20 text-blue-100";
   return (
     <div
       className={`fixed w-full z-10 top-0 h-[80px] flex justify-between items-center px-[30px] ${navbarBg}`}
