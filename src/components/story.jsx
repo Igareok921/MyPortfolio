@@ -38,7 +38,7 @@ const Story = () => {
           <p>
             <b>In 2017</b> , I moved to Ireland with my family and began working
             as a chef-manager for a takeaway restaurant. This role taught me
-            valuable skills such as user experience, responsibility,
+            valuable skills such as customer experience, responsibility,
             problem-solving, team leadership, and organization. In 2019, I and
             my wife decided to start our own restaurant business, which went
             well until the COVID-19 pandemic hit in 2020. Unfortunately, we lost

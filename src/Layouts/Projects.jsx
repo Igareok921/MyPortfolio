@@ -5,7 +5,7 @@ import ProjectsData from "../components/ProjectsData ";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 function Projects({ setSelectedPage }) {
-  const [showFullDescription, setShowFullDescription] = useState(false);
+  const [showFullDescription, setShowFullDescription] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -14,7 +14,13 @@ function Projects({ setSelectedPage }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const toggleDescription = () => setShowFullDescription(!showFullDescription);
+  const toggleDescription = (projectId) => {
+    if (showFullDescription === projectId) {
+      setShowFullDescription(null);
+    } else {
+      setShowFullDescription(projectId);
+    }
+  };
 
   return (
     <>
@@ -35,6 +41,8 @@ function Projects({ setSelectedPage }) {
               sourceCodeLink,
             } = project;
 
+            const isExpandedText = id === showFullDescription;
+
             const shortenedDescription =
               windowWidth < 490
                 ? description.substring(0, 100) + "..."
@@ -52,13 +60,13 @@ function Projects({ setSelectedPage }) {
 
                 <div className="w-[100%] shadow-2xl bg-white-100 rounded-xl p-6 mt-10 lg6:mt-5">
                   <p className="text-[1.2rem] lg6:text-[1rem]">
-                    {showFullDescription ? description : shortenedDescription}
+                    {isExpandedText ? description : shortenedDescription}
                     {description.length > 200 && (
                       <button
-                        onClick={toggleDescription}
+                        onClick={() => toggleDescription(id)}
                         className="text-blue-100 underline ml-2"
                       >
-                        {showFullDescription ? "Show less" : "Show more"}
+                        {isExpandedText ? "Show less" : "Show more"}
                       </button>
                     )}
                   </p>
